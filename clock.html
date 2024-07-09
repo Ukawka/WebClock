@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态可交互时钟</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="updateClock.js"></script>
+</head>
+
+<body>
+    <svg id="clock" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="90" stroke="black" stroke-width="2" fill="Lavender" />
+        <line x1="100" y1="100" x2="100" y2="45" stroke="black" stroke-width="5" id="hour-hand" />
+        <line x1="100" y1="100" x2="100" y2="25" stroke="black" stroke-width="3" id="minute-hand" />
+        <line x1="100" y1="100" x2="100" y2="15" stroke="red" stroke-width="1" id="second-hand" />
+        <circle cx="100" cy="100" r="4" stroke="black" stroke-width="2" fill="gray" />
+
+        <g id="numbers" transform="translate(100,100)">
+        <text x="0" y="-75" class="number">12</text>
+        <text x="80" y="5" class="number">3</text>
+        <text x="0" y="80" class="number">6</text>
+        <text x="-80" y="5" class="number">9</text>
+        </g>
+
+        <g id="ticks" transform="translate(100,100)">
+        <!-- 刻度线，每5分钟一个 -->
+        <line x1="0" y1="-80" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(30)" />
+        <line x1="0" y1="-80" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(60)" />
+        <line x1="0" y1="-85" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(90)" />
+        <line x1="0" y1="-80" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(120)" />
+        <line x1="0" y1="-80" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(150)" />
+        <line x1="0" y1="-85" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(180)" />
+        <line x1="0" y1="-80" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(210)" />
+        <line x1="0" y1="-80" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(240)" />
+        <line x1="0" y1="-85" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(270)" />
+        <line x1="0" y1="-80" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(300)" />
+        <line x1="0" y1="-80" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(330)" />
+        <line x1="0" y1="-85" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(360)" />
+        </g>
+    </svg>
+
+    <div id="clockDisplay">00:00:00</div>
+</body>
+
+</html>

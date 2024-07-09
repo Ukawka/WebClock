@@ -1,0 +1,18 @@
+#clock {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+}
+
+.number {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    text-anchor: middle;
+}
+
+#clockDisplay {
+    text-align: center;
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+}
