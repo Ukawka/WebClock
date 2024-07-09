@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>多功能可交互时钟</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <style>
+        .nav-frame {
+            width: 100px;
+            transition: width 0.3s;
+        }
+        .collapsed {
+            width: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="toggleButton">收起/展开</button>
+    <div style="display: flex;" id="frame">
+        <iframe src="nav.html" class="nav-frame" style="height: 100vh;" frameborder="0" scrolling="no"></iframe>
+        <iframe src="clock.html" name="content" style="width: 80%; height: 100vh;" frameborder="0" scrolling="no"></iframe>
+    </div>
+    <script>
+        document.getElementById('toggleButton').addEventListener('click', function() {
+            var navFrame = document.querySelector('.nav-frame');
+            navFrame.classList.toggle('collapsed');
+        });
+    </script>
+</body>
+
+</html>

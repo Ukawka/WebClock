@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--- Basic Page Needs  -->
+    <meta charset="utf-8">
+    <title>多功能可交换时钟</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Specific Meta  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: rgb(98, 95, 98);
+            overflow: hidden;
+        }
+
+        .bg {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: calc(100vh);
+            background-size: cover;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        a,
+        a:hover,
+        a:focus {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.8s;
+        }
+
+        .divItem {
+            width: 100%;
+            height: 26px;
+            padding: 6px;
+            transition: all 0.8s ease-in-out;
+            font-weight: bold;
+            color: cornsilk;
+        }
+
+        .divItem:hover {
+            background-color: rgb(81, 83, 204);
+            color: floralwhite;
+        }
+    </style>
+
+   
+</head>
+
+<body>
+    <main class="bg">       
+        <div class="divItem">
+            <a href="clock.html" target="content">时钟</a>
+        </div>
+        <div class="divItem">
+            <a href="alarmPage.html" target="content">闹钟</a>
+        </div>
+        <div class="divItem">
+            <a href="stopWatchPage.html" target="content">秒表</a>
+        </div>
+        <div class = "divItem">
+            <a href="timerPage.html" target="content">计时器</a>
+        </div>
+    </main>
+</body>
+
+</html>

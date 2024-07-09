@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Flexible Timer</title>
+    <style>
+        #timerDisplay {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <input type="number" id="hours" value="0" min="0" step="1">
+    <label for="hours">小时&nbsp;</label>
+    <input type="number" id="minutes" value="0" min="0" step="1">
+    <label for="seconds">分钟&nbsp;</label>
+    <input type="number" id="seconds" value="0" min="0" step="1">
+    <label for="minutes">秒</label>
+    <button onclick="startTimer()">开始计时</button>
+    <button onclick="stopTimer()">停止计时</button>
+    <div id="timerDisplay">00:00:00.000</div>
+    <script src="timer.js"></script>
+</body>
+</html>

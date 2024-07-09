@@ -20,7 +20,7 @@ function updateClock() {
     secondHand.setAttribute('transform', `rotate(${secondDeg}, 100, 100)`);
 
     // 格式化时间显示
-    const timeString = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    const timeString = `${String(now.getHours()).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
     // 更新数字时钟label的内容
     document.getElementById('clockDisplay').textContent = timeString;
