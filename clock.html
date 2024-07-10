@@ -9,6 +9,16 @@
 </head>
 
 <body>
+    <div id = "setTime">
+        <input type="number" id="hour-input" min="0" max="23" value="12">
+        <label for="hour-input">时&nbsp;</label>
+        <input type="number" id="minute-input" min="0" max="59" value="0">
+        <label for="minute-input">分&nbsp;</label>
+        <input type="number" id="second-input" min="0" max="59" value="0">
+        <label for="second-input">秒&nbsp;</label>
+        <button onclick="setTime()">设置时间</button>
+        <button id="reset-time" onclick="resetToSystemTime()">使用系统时间</button>
+    </div>
     <svg id="clock" xmlns="http://www.w3.org/2000/svg">
         <circle cx="100" cy="100" r="90" stroke="black" stroke-width="2" fill="Lavender" />
         <line x1="100" y1="100" x2="100" y2="45" stroke="black" stroke-width="5" id="hour-hand" />

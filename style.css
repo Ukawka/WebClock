@@ -1,3 +1,13 @@
+#setTime{
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+button {
+    margin: 5px;
+}
+
 #clock {
     display: block;
     margin: 0 auto;
