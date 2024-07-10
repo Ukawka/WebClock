@@ -1,0 +1,7 @@
+.nav-frame {
+    width: 100px;
+    transition: width 0.3s;
+}
+.collapsed {
+    width: 5px;
+}
