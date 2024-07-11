@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* 边栏缩回 */
 .collapsed {
     width: 0px !important;
     visibility: none !important;
@@ -19,7 +20,7 @@
     position: absolute;
     top: 15px;
     left: 15px;
-    width: 40px;
+    width: 45px;
     height: 40px;
     padding-left: 10px;
     padding-right: 10px;
@@ -28,6 +29,7 @@
     flex-direction: column;
     justify-content: center;
 }
+
 #frame
 {
     display: flex;
@@ -36,7 +38,7 @@
 
 #frame #nav
 {
-    width: 250px;
+    width: 275px;
     transition: width 0.3s;
     height: 100vh;
     overflow: hidden;
