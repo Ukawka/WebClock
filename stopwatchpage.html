@@ -39,8 +39,11 @@
     </svg>
 
     <div id="stopwatch">00:00:00.000</div>
-    <button id="startStopButton" onclick="startStopToggle()">启动</button>
-    <button id="resetLapButton" disabled="true" onclick="resetLapToggle()">复位</button>
+    <div id="buttons">
+        <button id="startStopButton" onclick="startStopToggle()">启动</button>
+        <button id="resetLapButton" disabled="true" onclick="resetLapToggle()">复位</button>
+    </div>
+    <textarea id="lapTimes" rows="10" cols="50" readonly></textarea>
     <script src="stopwatch.js"></script>
 </body>
 

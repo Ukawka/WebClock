@@ -1,6 +1,12 @@
 #stopwatch {
-    font-size: 24px;
+    font-size: 70px;
     margin-bottom: 20px;
+    text-align: center;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
 }
 
 button {
@@ -12,7 +18,7 @@ button {
     display: inline-block;
     text-align: center;
     line-height: 60px;
-    margin: 5px;
+    margin: 5px 150px;
     transition: background-color 0.3s;
 }
 
@@ -89,4 +95,25 @@ button:disabled {
     font-weight: 700;
     font-family: Arial, sans-serif;
     margin-top: 120px;
+}
+
+#lapTimes {
+    width: 400px;
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: 16px;
+    padding: 10px;
+    resize: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#lapTimes:focus {
+    outline: none;
+    border-color: #c217c5;
+
 }
