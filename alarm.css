@@ -5,6 +5,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+html
+{
+    font-size: 10px;
+}
 #grid
 {
     display: grid;
@@ -17,7 +21,7 @@
     column-gap: 20px;
 }
 
-
+/* 增加时钟时，给下一个位置 */
 #pos1
 {
     grid-area: 1/1/2/2;
@@ -33,10 +37,170 @@
     grid-area: 2/1/3/2;
 }
 
+.alarmModule:hover
+{
+    background-color:rgb(230, 230, 230);
+}
+
 .alarmModule
 {
-    background-color: beige;
+    background-color: transparent;
     border-radius: 10%;
+    box-shadow: 0 0 6px -2px gray;
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    /* justify-content: center; */
+    
+}
+
+.alarmModule .alarminfo
+{
+    padding-top: 20px;
+    padding-left: 10px;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    color: #c2c2c2;
+}
+
+.alarmModule .time
+{
+    font-size: 6em;
+    font-weight: bold;
+}
+
+.alarmModule .name
+{
+    font-size: 2.5em;
+    font-weight: normal;
+}
+
+.switch 
+{
+    position: relative;
+    width: 60px;
+    height: 34px;
+    justify-self: center;
+    margin-top: 30px;
+}
+
+.switch input 
+{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider 
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: solid 1px gray;
+    background-color: white;
+    transition: .2s;
+    border-radius: 34px;
+}
+
+.slider:before 
+{
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #ccc;
+    transition: .2s;
+    border-radius: 50%;
+}
+
+.checked .slider 
+{
+    background-color: #2196F3;
+}
+
+.checked .slider:before 
+{
+    transform: translateX(26px);
+    background-color: rgb(255, 255, 255);
+}
+
+.checked .alarminfo 
+{
+    color: black; 
+}
+
+#modal
+{
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffffc4;
+}
+
+#modal #modalwindow
+{
+    width: 300px;
+    height: 600px;
+    background-color: #efefef;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 0 gray;
+    padding: 20px;
+}
+
+#modal #modalwindow #head
+{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 3em;
+}
+
+#modal #modalwindow #name
+{
+    display: flex;
+    flex-direction: row;
+    font-size: 1.5em;
+}
+
+#modal #modalwindow #name #text
+{
+    width: 20%;
+    height: 100%;
+}
+
+#modal #modalwindow #foot
+{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#modal #modalwindow #foot > button
+{
+    width: 40%;
+    height: 80%;
+}
+
+.show + #modal
+{
+    visibility: visible;
 }
 
 #editButton
@@ -49,7 +213,6 @@
     display: flex;
     flex-direction: row;
     padding: 10px;
-    /* background-color: bisque; */
     border-radius: 10px;
     box-shadow: 0 0 6px -2px gray;
 }

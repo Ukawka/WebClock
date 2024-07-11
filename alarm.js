@@ -32,3 +32,45 @@ function stopAlarm() {
         alert('闹钟已关闭。');
     }
 }
+
+document.querySelectorAll('.alarmModule input[type="checkbox"]').forEach(function(checkbox)
+{
+    checkbox.addEventListener('change', function() 
+    {
+        const alarmModule = this.closest('.alarmModule');
+        if (this.checked) 
+        {
+            alarmModule.classList.add('checked');
+        } 
+        else 
+        {
+            alarmModule.classList.remove('checked');
+        }
+    });
+});
+
+document.querySelectorAll('.alarmModule').forEach(function(alarm)
+{
+    alarm.addEventListener('click', function(event)
+    {
+        const alarmModule = this.closest('#grid');
+        if (!event.target.closest('.switch')) 
+        {
+            alarmModule.classList.add('show');
+        }
+    })
+});
+
+function cancelModal()
+{
+    const grid = document.querySelector('#grid')
+    grid.classList.remove('show');
+}
+
+document.getElementById('modal').addEventListener('click', function(event) 
+{
+    if (event.target === this) 
+    {
+        cancelModal();
+    }
+});
