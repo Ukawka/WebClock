@@ -9,49 +9,55 @@
 </head>
 
 <body>
-    <div id = "setTime">
-        <input type="number" id="hour-input" min="0" max="23" value="12">
-        <label for="hour-input">时&nbsp;</label>
-        <input type="number" id="minute-input" min="0" max="59" value="0">
-        <label for="minute-input">分&nbsp;</label>
-        <input type="number" id="second-input" min="0" max="59" value="0">
-        <label for="second-input">秒&nbsp;</label>
-        <button onclick="setTime()">设置时间</button>
-        <button id="reset-time" onclick="resetToSystemTime()">使用系统时间</button>
-    </div>
-    <svg id="clock" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="100" cy="100" r="90" stroke="black" stroke-width="2" fill="Lavender" />
-        <line x1="100" y1="100" x2="100" y2="45" stroke="black" stroke-width="5" id="hour-hand" />
-        <line x1="100" y1="100" x2="100" y2="25" stroke="black" stroke-width="3" id="minute-hand" />
-        <line x1="100" y1="100" x2="100" y2="15" stroke="red" stroke-width="1" id="second-hand" />
-        <circle cx="100" cy="100" r="4" stroke="black" stroke-width="2" fill="gray" />
+    <svg id="clock" xmlns="http://www.w3.org/2000/svg" width="400" height="400">
+        <circle cx="200" cy="200" r="180" stroke="black" stroke-width="2" fill="Lavender" />
+        <line x1="200" y1="200" x2="200" y2="90" stroke="black" stroke-width="5" id="hour-hand" />
+        <line x1="200" y1="200" x2="200" y2="50" stroke="black" stroke-width="3" id="minute-hand" />
+        <line x1="200" y1="200" x2="200" y2="30" stroke="red" stroke-width="1" id="second-hand" />
+        <circle cx="200" cy="200" r="4" stroke="black" stroke-width="2" fill="gray" />
 
-        <g id="numbers" transform="translate(100,100)">
-        <text x="0" y="-75" class="number">12</text>
-        <text x="80" y="5" class="number">3</text>
-        <text x="0" y="80" class="number">6</text>
-        <text x="-80" y="5" class="number">9</text>
+        <g id="numbers" transform="translate(200,200)">
+            <text x="0" y="-150" class="number">12</text>
+            <text x="160" y="10" class="number">3</text>
+            <text x="0" y="160" class="number">6</text>
+            <text x="-160" y="10" class="number">9</text>
         </g>
 
-        <g id="ticks" transform="translate(100,100)">
-        <!-- 刻度线，每5分钟一个 -->
-        <line x1="0" y1="-80" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(30)" />
-        <line x1="0" y1="-80" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(60)" />
-        <line x1="0" y1="-85" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(90)" />
-        <line x1="0" y1="-80" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(120)" />
-        <line x1="0" y1="-80" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(150)" />
-        <line x1="0" y1="-85" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(180)" />
-        <line x1="0" y1="-80" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(210)" />
-        <line x1="0" y1="-80" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(240)" />
-        <line x1="0" y1="-85" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(270)" />
-        <line x1="0" y1="-80" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(300)" />
-        <line x1="0" y1="-80" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(330)" />
-        <line x1="0" y1="-85" x2="0" y2="-90" stroke="black" stroke-width="1" transform="rotate(360)" />
+        <g id="ticks" transform="translate(200,200)">
+            <!-- 刻度线，每5分钟一个 -->
+            <line x1="0" y1="-160" x2="0" y2="-180" stroke="black" stroke-width="1" transform="rotate(30)" />
+            <line x1="0" y1="-160" x2="0" y2="-180" stroke="black" stroke-width="1" transform="rotate(60)" />
+            <line x1="0" y1="-170" x2="0" y2="-180" stroke="black" stroke-width="1" transform="rotate(90)" />
+            <line x1="0" y1="-160" x2="0" y2="-180" stroke="black" stroke-width="1" transform="rotate(120)" />
+            <line x1="0" y1="-160" x2="0" y2="-180" stroke="black" stroke-width="1" transform="rotate(150)" />
+            <line x1="0" y1="-170" x2="0" y2="-180" stroke="black" stroke-width="1" transform="rotate(180)" />
+            <line x1="0" y1="-160" x2="0" y2="-180" stroke="black" stroke-width="1" transform="rotate(210)" />
+            <line x1="0" y1="-160" x2="0" y2="-180" stroke="black" stroke-width="1" transform="rotate(240)" />
+            <line x1="0" y1="-170" x2="0" y2="-180" stroke="black" stroke-width="1" transform="rotate(270)" />
+            <line x1="0" y1="-160" x2="0" y2="-180" stroke="black" stroke-width="1" transform="rotate(300)" />
+            <line x1="0" y1="-160" x2="0" y2="-180" stroke="black" stroke-width="1" transform="rotate(330)" />
+            <line x1="0" y1="-170" x2="0" y2="-180" stroke="black" stroke-width="1" transform="rotate(360)" />
         </g>
     </svg>
 
     <div id="clockDisplay">00:00:00</div>
 
+    <div id="setTime">
+        <div id="inputs">
+            <input type="number" id="hour-input" min="0" max="23" value="12">
+            <label for="hour-input">时&nbsp;</label>
+            <input type="number" id="minute-input" min="0" max="59" value="0">
+            <label for="minute-input">分&nbsp;</label>
+            <input type="number" id="second-input" min="0" max="59" value="0">
+            <label for="second-input">秒&nbsp;</label>
+        </div>
+        <div id="buttons">
+            <button onclick="setTime()">设置时间</button>
+            <button id="reset-time" onclick="resetToSystemTime()">使用系统时间</button>
+        </div>
+    </div>
+
     <script src="updateClock.js"></script>
 </body>
+
 </html>

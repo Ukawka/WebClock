@@ -1,28 +1,56 @@
-#setTime{
+#setTime {
     display: flex;
-    margin: 0 auto;
-    justify-content: center;
+    flex-direction: column;
+    margin: 60px auto;
+    align-items: center;
 }
 
 button {
     margin: 5px;
+    width: 140px;
+    height: 40px;
+    font-size: 20px;
 }
 
 #clock {
     display: block;
     margin: 0 auto;
-    width: 200px;
-    height: 200px;
+    width: 400px;
+    height: 400px;
+    transform: translateY(90px);
 }
 
 .number {
     font-family: Arial, sans-serif;
-    font-size: 12px;
+    font-size: 24px;
     text-anchor: middle;
 }
 
 #clockDisplay {
     text-align: center;
-    font-size: 24px;
+    font-size: 120px;
+    font-weight: 700;
     font-family: Arial, sans-serif;
+    margin-top: 120px;
+}
+
+#inputs {
+    display: flex;
+}
+
+#buttons {
+    display: flex;
+}
+
+input[type="number"] {
+    text-align: center;
+    font-size: 30px;
+}
+
+#setTime label[for="hour-input"],
+#setTime label[for="minute-input"],
+#setTime label[for="second-input"] {
+    position: relative;
+    left: 2px;
+    font-size: 30px;
 }

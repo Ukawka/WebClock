@@ -1,4 +1,3 @@
-// 根据用户输入来设置时间
 function setTime() {
     const hour = parseInt(document.getElementById('hour-input').value, 10);
     const minute = parseInt(document.getElementById('minute-input').value, 10);
@@ -37,15 +36,15 @@ function setTimeDelta(hour, minute, second) {
     delta_date = new Date(userTime - now);
 }
 
-//恢复为系统时间，设置delta_date为0即可
+// 恢复为系统时间，设置delta_date为0即可
 function resetToSystemTime() {
     // 重置delta_date为默认值，即不添加任何时间差
-    delta_date = new Date(0);   
+    delta_date = new Date(0);
     // 刷新时钟以显示当前系统时间
     updateClock();
 }
 
-//刷新时钟
+// 刷新时钟
 function updateClock() {
     const now = new Date();
     const adjustedTime = new Date(now.getTime() + delta_date.getTime());
@@ -62,9 +61,9 @@ function updateClock() {
     const minuteDeg = (360 / 60) * minutes;
     const secondDeg = ((seconds * 1000 + milliseconds) / 60000) * 360;
 
-    hourHand.setAttribute('transform', `rotate(${hourDeg}, 100, 100)`);
-    minuteHand.setAttribute('transform', `rotate(${minuteDeg}, 100, 100)`);
-    secondHand.setAttribute('transform', `rotate(${secondDeg}, 100, 100)`);
+    hourHand.setAttribute('transform', `rotate(${hourDeg}, 200, 200)`);
+    minuteHand.setAttribute('transform', `rotate(${minuteDeg}, 200, 200)`);
+    secondHand.setAttribute('transform', `rotate(${secondDeg}, 200, 200)`);
 
     // 格式化时间显示
     const timeString = `${String(adjustedTime.getHours()).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
