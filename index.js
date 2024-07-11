@@ -1,4 +1,6 @@
 document.getElementById('toggleButton').addEventListener('click', function() {
-    var navFrame = document.querySelector('.nav-frame');
+    console.log('Button clicked');
+    const navFrame = document.querySelector('#frame #nav');
     navFrame.classList.toggle('collapsed');
+    console.log(navFrame.classList);
 });
