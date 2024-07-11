@@ -18,7 +18,7 @@ button {
     display: inline-block;
     text-align: center;
     line-height: 60px;
-    margin: 5px 150px;
+    margin: 5px 50px;
     transition: background-color 0.3s;
 }
 
