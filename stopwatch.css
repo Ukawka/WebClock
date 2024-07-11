@@ -2,3 +2,91 @@
     font-size: 24px;
     margin-bottom: 20px;
 }
+
+button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
+    line-height: 60px;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: default;
+}
+
+#startStopButton {
+    color: green;
+    background-color: #17c537;
+}
+
+#startStopButton:hover {
+    background-color: #1be217;
+}
+
+#startStopButton:active {
+    background-color: #67b464;
+}
+
+#startStopButton.running {
+    color: red;
+    background-color: #9e1313;
+}
+
+#startStopButton.running:hover {
+    background-color: #e07070;
+}
+
+#startStopButton.running:active {
+    background-color: #581212;
+}
+
+#resetLapButton {
+    color: white;
+    background-color: #888a8b;
+}
+
+#resetLapButton:hover {
+    background-color: #aeb0b2;
+}
+
+#resetLapButton:active {
+    background-color: #565859;
+}
+
+#resetLapButton:disabled {
+    color: #ffffff;
+    background-color: #d3d3d3;
+
+}
+
+#clock {
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+    transform: translateY(10px);
+}
+
+.number {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    text-anchor: middle;
+}
+
+#clockDisplay {
+    text-align: center;
+    font-size: 120px;
+    font-weight: 700;
+    font-family: Arial, sans-serif;
+    margin-top: 120px;
+}
