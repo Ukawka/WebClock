@@ -153,49 +153,105 @@ html
 #modal #modalwindow
 {
     width: 300px;
-    height: 600px;
+    height: 500px;
     background-color: #efefef;
     border-radius: 10px;
     box-shadow: 0 0 5px 0 gray;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 #modal #modalwindow #head
 {
     width: 100%;
-    height: 10%;
+    height: 15%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     font-size: 3em;
+    padding: 20px 30px 0 30px;
 }
 
-#modal #modalwindow #name
+#modal #modalwindow #head #text
 {
     display: flex;
     flex-direction: row;
-    font-size: 1.5em;
+    align-items: center;
 }
 
-#modal #modalwindow #name #text
+#modal #modalwindow #head #delete
 {
-    width: 20%;
+    height: 45px;
+    width: 45px;
+    border-radius: 5px;
+}
+
+#modal #modalwindow #head #delete:hover
+{
+    background-color: #c2c2c2;
+}
+
+#modal #modalwindow #body
+{
+    width: 100%;
+    height: 70%;
+    padding: 20px;
+}
+
+#modal #modalwindow #body #name
+{
+    display: flex;
+    flex-direction: row;
+    font-size: 2em;
+}
+
+#modal #modalwindow #body #name #text
+{
+    width: 30%;
     height: 100%;
+}
+
+#modal #modalwindow #body #name > input
+{
+    width: 70%;
+    height: 100%;
+    padding: 8px;
+    border-radius: 5px;
 }
 
 #modal #modalwindow #foot
 {
-    width: 100%;
-    height: 20%;
+    width: 100%; 
+    height: 15%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    border-color: #c2c2c2;
+    padding: 15px 30px;
 }
 
 #modal #modalwindow #foot > button
 {
-    width: 40%;
-    height: 80%;
+    width: 45%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 0 gray;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+#modal #modalwindow #foot > button:hover
+{
+    background-color: #c2c2c2;
+}
+
+#modal #modalwindow #foot #save:hover
+{
+    background-color: rgb(81, 83, 204);
+    color: white;
 }
 
 .show + #modal
