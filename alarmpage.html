@@ -57,12 +57,18 @@
                 </button>
             </div>
             <div id = "body">
-                <div>
-                    <input type="time" id="alarmTime" placeholder="选择时间">
+                <div id = "clock"></div>
+                <div id = "timeInput">
+                    <input type="number" id="hour-input" min="0" max="23" value="12">
+                    <label for="hour-input">&nbsp;:&nbsp;</label>
+                    <input type="number" id="minute-input" min="0" max="59" value="0">
+                    <!-- <label for="minute-input">分&nbsp;</label> -->
+                    <!-- <input type="number" id="second-input" min="0" max="59" value="0">
+                    <label for="second-input">秒&nbsp;</label> -->
                 </div>
-                <div id = "name">
+                <div id = "nameInput">
                     <div id = "text">名称：</div>
-                    <input type="text" placeholder="闹钟1">
+                    <input type="text" value="闹钟">
                 </div>
             </div>
             <div id = "foot">

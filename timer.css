@@ -1,4 +1,361 @@
-#timerDisplay {
+/* #timerDisplay {
     font-size: 24px;
     margin-bottom: 20px;
+} */
+*
+{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html
+{
+    font-size: 10px;
+}
+#grid
+{
+    display: grid;
+    grid-template-columns: 480px 480px; 
+    /* 增加倒计时时，判断是否新加行 */
+    grid-template-rows: 230px 230px; 
+    justify-content: center;
+    padding-top: 60px;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+/* 增加倒计时时，给下一个位置 */
+#pos1
+{
+    grid-area: 1/1/2/2;
+}
+
+#pos2
+{
+    grid-area: 1/2/2/3;
+}
+
+#pos3
+{
+    grid-area: 2/1/3/2;
+}
+
+.timerModule:hover
+{
+    background-color:#f9f9f9;
+}
+
+.timerModule
+{
+    background-color: transparent;
+    border-radius: 10%;
+    box-shadow: 0 0 6px -2px gray;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.timerModule .body
+{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    justify-content: flex-start;
+}
+
+.timerModule .body .timerinfo
+{
+    padding-top: 20px;
+    padding-left: 10px;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    color: #c2c2c2;
+}
+
+.timerModule .body .timerinfo .time
+{
+    font-size: 6em;
+    font-weight: bold;
+}
+
+.timerModule .body .timerinfo .name
+{
+    font-size: 2.5em;
+    font-weight: normal;
+}
+
+.timerModule .body .enlarge:hover
+{
+    background-color: rgba(81, 83, 204, 0.418);
+}
+
+.timerModule .body .enlarge
+{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin-top: 30px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.timerModule .operations
+{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.timerModule .operations .play
+{
+    width: 45px;
+    height: 45px;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgb(81, 83, 204);
+}
+
+.timerModule .operations .renew
+{
+    width: 45px;
+    height: 45px;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 0 1px 0 gray;
+}
+
+/* #modal
+{
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffffc4;
+}
+
+#modal #modalwindow
+{
+    width: 300px;
+    height: 500px;
+    background-color: #efefef;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 0 gray;
+}
+
+#modal #modalwindow #head
+{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 3em;
+    padding: 20px 30px 0 30px;
+}
+
+#modal #modalwindow #head #text
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#modal #modalwindow #head #delete
+{
+    height: 45px;
+    width: 45px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal #modalwindow #head #delete:hover
+{
+    background-color: #c2c2c2;
+}
+
+#modal #modalwindow #body
+{
+    width: 100%;
+    height: 70%;
+    padding: 10px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+#modal #modalwindow #body #clock
+{
+    height: 60%;
+    aspect-ratio: 1 / 1;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
+#modal #modalwindow #body #timeInput
+{
+    
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+
+    margin-top: 5px;
+    height: 15%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+#modal #modalwindow #body #timeInput > input[type = "number"]
+{
+    width: 20%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    text-align: center;
+    box-shadow: 0 0 2px 0 gray;
+    border-radius: 5px;
+}
+
+#modal #modalwindow #body #nameInput
+{
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    height: 15%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#modal #modalwindow #body #nameInput #text
+{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#modal #modalwindow #body #nameInput > input
+{
+    width: 80%;
+    height: 80%;
+    padding: 8px;
+    border-radius: 5px;
+    box-shadow: 0 0 2px 0 gray;
+}
+
+#modal #modalwindow #foot
+{
+    width: 100%; 
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    border-color: #c2c2c2;
+    padding: 15px 30px;
+}
+
+#modal #modalwindow #foot > button
+{
+    width: 45%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 0 gray;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+#modal #modalwindow #foot > button:hover
+{
+    background-color: #c2c2c2;
+}
+
+#modal #modalwindow #foot #save:hover
+{
+    background-color: rgb(81, 83, 204);
+    color: white;
+}
+
+.show + #modal
+{
+    visibility: visible;
+}  */
+
+#editButton
+{
+    position: absolute;
+    bottom: 5%;
+    right: 10%;
+    width: 130px;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px -2px gray;
+}
+
+#editButton .operation
+{
+    width: 50%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#editButton .operation:hover
+{
+    background-color: #c2c2c2;
 }

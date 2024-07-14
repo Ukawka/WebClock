@@ -74,3 +74,20 @@ document.getElementById('modal').addEventListener('click', function(event)
         cancelModal();
     }
 });
+
+function padZero(value) {
+    return value.toString().padStart(2, '0');
+}
+function updateInputValue(input) {
+    input.value = padZero(input.value);
+}
+
+const hourInput = document.getElementById('hour-input');
+const minuteInput = document.getElementById('minute-input');
+
+// Initial format
+hourInput.value = padZero(hourInput.value);
+minuteInput.value = padZero(minuteInput.value);
+
+hourInput.addEventListener('change', () => updateInputValue(hourInput));
+minuteInput.addEventListener('change', () => updateInputValue(minuteInput));
