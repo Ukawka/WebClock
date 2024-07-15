@@ -54,3 +54,14 @@ input[type="number"] {
     left: 2px;
     font-size: 30px;
 }
+
+#hour-hand,
+#minute-hand,
+#second-hand {
+    cursor: grab;
+}
+#hour-hand:active,
+#minute-hand:active,
+#second-hand:active {
+    cursor: grabbing;
+}
