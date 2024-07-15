@@ -47,3 +47,27 @@ function displayTime(ms) {
 function pad(value) {
     return String(value).padStart(2, '0'); // 确保小时、分钟、秒和毫秒都是两位数
 }
+
+function enlarge(element)
+{
+    const timerModule = element.closest('.timerModule');
+    timerModule.classList.add('enlarge');
+}
+
+function play(element)
+{
+    const timerModule = element.closest('.timerModule');
+    if(timerModule.classList.contains('play'))
+    {
+        timerModule.classList.remove('play');
+    }
+    else
+    {
+        timerModule.classList.add('play');
+    }
+}
+
+function renew(element)
+{
+    // FIXME
+}

@@ -54,6 +54,7 @@ html
     padding-left: 10px;
     display: flex;
     flex-direction: column;
+    transition: all 0.3s ease-in-out;
 }
 
 .timerModule .body
@@ -90,7 +91,8 @@ html
 
 .timerModule .body .enlarge:hover
 {
-    background-color: rgba(81, 83, 204, 0.418);
+    /* background-color: rgba(81, 83, 204, 0.418); */
+    background-color: #c2c2c2;
 }
 
 .timerModule .body .enlarge
@@ -100,7 +102,7 @@ html
     height: 40px;
     margin-top: 30px;
     border-radius: 5px;
-    transition: all 0.3s ease-in-out;
+    /* transition: all 0.3s ease-in-out; */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -117,17 +119,31 @@ html
     align-items: flex-start;
 }
 
+.timerModule .operations .play:hover
+{
+    /* background-color: rgb(90, 92, 224); */
+    background-color: rgba(81, 83, 204, 0.804);
+}
+
 .timerModule .operations .play
 {
     width: 45px;
     height: 45px;
     margin-right: 5%;
+    padding-left: 2px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     background-color: rgb(81, 83, 204);
+}
+
+
+
+.timerModule .operations .renew:hover
+{
+    background-color: #c2c2c2;
 }
 
 .timerModule .operations .renew
@@ -141,6 +157,10 @@ html
     align-items: center;
     border-radius: 50%;
     box-shadow: 0 0 1px 0 gray;
+}
+.play .timerinfo
+{
+    color: black;
 }
 
 /* #modal

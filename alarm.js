@@ -33,6 +33,7 @@ function stopAlarm() {
     }
 }
 
+// 打开闹钟按钮
 document.querySelectorAll('.alarmModule input[type="checkbox"]').forEach(function(checkbox)
 {
     checkbox.addEventListener('change', function() 
@@ -49,6 +50,7 @@ document.querySelectorAll('.alarmModule input[type="checkbox"]').forEach(functio
     });
 });
 
+// 编辑闹钟 打开模态框
 document.querySelectorAll('.alarmModule').forEach(function(alarm)
 {
     alarm.addEventListener('click', function(event)
@@ -61,12 +63,14 @@ document.querySelectorAll('.alarmModule').forEach(function(alarm)
     })
 });
 
+// 关闭模态框
 function cancelModal()
 {
     const grid = document.querySelector('#grid')
     grid.classList.remove('show');
 }
 
+// 点击页面任意位置关闭模态框
 document.getElementById('modal').addEventListener('click', function(event) 
 {
     if (event.target === this) 
@@ -75,6 +79,7 @@ document.getElementById('modal').addEventListener('click', function(event)
     }
 });
 
+// 时间格式 末位补零
 function padZero(value) {
     return value.toString().padStart(2, '0');
 }
@@ -85,7 +90,6 @@ function updateInputValue(input) {
 const hourInput = document.getElementById('hour-input');
 const minuteInput = document.getElementById('minute-input');
 
-// Initial format
 hourInput.value = padZero(hourInput.value);
 minuteInput.value = padZero(minuteInput.value);
 
