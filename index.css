@@ -6,14 +6,16 @@
     box-sizing: border-box;
 }
 /* 边栏缩回 */
-.collapsed {
+.collapsed 
+{
     width: 0px !important;
-    visibility: none !important;
 }
+
 #toggleButton:hover
 {
     background-color: #c2c2c2;
 }
+
 #toggleButton
 {
     background-color: transparent;
@@ -28,6 +30,32 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+#showIcon
+{
+    display: none;
+}
+
+#hideIcon
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide #showIcon
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide #hideIcon
+{
+    display: none;
 }
 
 #frame

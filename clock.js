@@ -199,3 +199,10 @@ function dragUpdate(currentDeg){
     // 更新时钟显示
     updateClock();
 }
+
+function toggled()
+{
+    const setTime = document.querySelector('#setTime');
+    setTime.classList.toggle('collapsed');
+    // alert("collapsed");
+}

@@ -55,10 +55,14 @@ document.querySelectorAll('.alarmModule').forEach(function(alarm)
 {
     alarm.addEventListener('click', function(event)
     {
-        const alarmModule = this.closest('#grid');
-        if (!event.target.closest('.switch')) 
+        const grid = this.closest('#grid');
+        if (!event.target.closest('.switch') && !event.target.closest('.deleteIcon')) 
         {
-            alarmModule.classList.add('show');
+            grid.classList.add('show');
+        }
+        if(grid.classList.contains('del') && !event.target.closest('.deleteIcon'))
+        {
+            grid.classList.remove('del');
         }
     })
 });
@@ -95,3 +99,10 @@ minuteInput.value = padZero(minuteInput.value);
 
 hourInput.addEventListener('change', () => updateInputValue(hourInput));
 minuteInput.addEventListener('change', () => updateInputValue(minuteInput));
+
+// 编辑-删除按钮
+function del()
+{
+    const grid = document.querySelector('#grid');
+    grid.classList.toggle('del');
+}

@@ -59,18 +59,18 @@ function enlarge(element)
 function play(element)
 {
     const timerModule = element.closest('.timerModule');
-    if(timerModule.classList.contains('play'))
-    {
-        timerModule.classList.remove('play');
-    }
-    else
-    {
-        timerModule.classList.add('play');
-    }
+    timerModule.classList.toggle('play');
 }
 
 // 归零按钮
 function renew(element)
 {
     // FIXME
+}
+
+// 编辑-删除按钮
+function del()
+{
+    const grid = document.querySelector('#grid');
+    grid.classList.toggle('del');
 }

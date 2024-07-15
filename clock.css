@@ -1,8 +1,22 @@
+body
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.collapsed
+{
+    height: 0 !important;
+}
+
 #setTime {
     display: flex;
     flex-direction: column;
-    margin: 60px auto;
+    /* margin: 60px auto; */
     align-items: center;
+    transition: height 0.8s ease-in-out;
 }
 
 button {

@@ -89,10 +89,37 @@ html
     font-weight: normal;
 }
 
+.timerModule .body .deleteIcon
+{
+    display: none;
+}
+
+.del .timerModule .body .deleteIcon:hover
+{
+    /* background-color: #c2c2c2; */
+    margin-top: 27px;
+}
+
+.del .timerModule .body .deleteIcon
+{
+    width: 50px;
+    height: 50px;
+    margin-top: 30px;
+    /* margin-left: 20px; */
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+
 .timerModule .body .enlarge:hover
 {
     /* background-color: rgba(81, 83, 204, 0.418); */
-    background-color: #c2c2c2;
+    /* background-color: #c2c2c2; */
+    margin-top: 27px;
 }
 
 .timerModule .body .enlarge
@@ -107,6 +134,12 @@ html
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.del .timerModule .body .enlarge
+{
+    display: none
 }
 
 .timerModule .operations

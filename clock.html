@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>动态可交互时钟</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="clock.css">
 </head>
 
 <body>
@@ -41,7 +41,7 @@
     </svg>
 
     <div id="clockDisplay">00:00:00</div>
-
+    <button onclick = "toggled()"></button>
     <div id="setTime">
         <div id="inputs">
             <input type="number" id="hour-input" min="0" max="23" value="12">
@@ -57,7 +57,7 @@
         </div>
     </div>
 
-    <script src="updateClock.js"></script>
+    <script src="clock.js"></script>
 </body>
 
 </html>
