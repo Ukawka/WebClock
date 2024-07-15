@@ -58,7 +58,7 @@ function updateClock() {
     const secondHand = document.getElementById('second-hand');
 
     const hourDeg = (360 / 12) * hours + (360 / 12) * (minutes / 60);
-    const minuteDeg = (360 / 60) * minutes;
+    const minuteDeg = (360 / 60) * minutes + (360 / 60) * (seconds / 60);
     const secondDeg = ((seconds * 1000 + milliseconds) / 60000) * 360;
 
     hourHand.setAttribute('transform', `rotate(${hourDeg}, 200, 200)`);
@@ -174,10 +174,10 @@ function dragUpdate(currentDeg){
     }
     else if (isMinuteHandDragging){
         const currentMinute = Math.round((currentDeg * 60 / 360)) % 60;
-        if (minute == 59 && currentMinute == 0){
+        if (minute > 50 && currentMinute < 10){
             setTimeDelta((hour+1)%24, 0, second);
         }
-        else if (minute == 0 && currentMinute == 59){
+        else if (minute < 10 && currentMinute > 50){
             setTimeDelta((hour-1+24)%24, 59, second);
         }
         else{
@@ -186,10 +186,10 @@ function dragUpdate(currentDeg){
     }
     else if (isSecondHandDragging){
         const currentSecond = Math.round((currentDeg * 60 / 360)) % 60;
-        if (second == 59 && currentSecond == 0){
+        if (second > 50 && currentSecond < 10){
             setTimeDelta(hour, minute+1, 0);
         }
-        else if (second == 0 && currentSecond == 59){
+        else if (second < 10 && currentSecond > 50){
             setTimeDelta(hour, minute-1, 59);
         }
         else{
