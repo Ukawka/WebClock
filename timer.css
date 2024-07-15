@@ -139,7 +139,10 @@ html
     background-color: rgb(81, 83, 204);
 }
 
-
+.timerModule .operations .play .pauseIcon
+{
+    padding-right: 2px;
+} 
 
 .timerModule .operations .renew:hover
 {
@@ -158,11 +161,25 @@ html
     border-radius: 50%;
     box-shadow: 0 0 1px 0 gray;
 }
-.play .timerinfo
+.play .body .timerinfo
 {
     color: black;
 }
 
+.play .operations .play .playIcon
+{
+    display: none;
+}
+
+.timerModule .operations .play .pauseIcon
+{
+    display: none;
+}
+
+.play .operations .play .pauseIcon
+{
+    display: flex;
+}
 /* #modal
 {
     visibility: hidden;

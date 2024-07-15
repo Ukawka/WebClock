@@ -48,12 +48,14 @@ function pad(value) {
     return String(value).padStart(2, '0'); // 确保小时、分钟、秒和毫秒都是两位数
 }
 
+// 放大按钮
 function enlarge(element)
 {
     const timerModule = element.closest('.timerModule');
     timerModule.classList.add('enlarge');
 }
 
+// 播放暂停按钮
 function play(element)
 {
     const timerModule = element.closest('.timerModule');
@@ -67,6 +69,7 @@ function play(element)
     }
 }
 
+// 归零按钮
 function renew(element)
 {
     // FIXME
