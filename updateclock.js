@@ -72,5 +72,130 @@ function updateClock() {
     document.getElementById('clockDisplay').textContent = timeString;
 }
 
-setInterval(updateClock, 100); // 每0.1秒更新一次时钟
+var clockIntervalId = setInterval(updateClock, 100); // 每0.1秒更新一次时钟
 updateClock(); // 初始加载时钟
+
+
+// 拨动时钟指针，改变时间
+var hourHand = document.getElementById('hour-hand');
+var minuteHand = document.getElementById('minute-hand');
+var secondHand = document.getElementById('second-hand');
+var isHourHandDragging = false;
+var isMinuteHandDragging = false;
+var isSecondHandDragging = false;
+console.log(document.getElementById('center').getBoundingClientRect().left, document.getElementById('center').getBoundingClientRect().top);
+
+// 监听时针拖动事件
+hourHand.addEventListener('mousedown', function(event) {
+    isHourHandDragging = true;
+    onHandDragStart(event);
+});
+
+// 监听分针拖动事件
+minuteHand.addEventListener('mousedown', function(event) {
+    isMinuteHandDragging = true;
+    onHandDragStart(event);
+});
+
+// 监听秒针拖动事件
+secondHand.addEventListener('mousedown', function(event) {
+    isSecondHandDragging = true;
+    onHandDragStart(event);
+});
+
+// 监听鼠标按下事件
+function onHandDragStart(event){
+    document.addEventListener('mousemove', onHandDrag);
+    document.addEventListener('mouseup', onHandDragEnd);
+    clearInterval(clockIntervalId); // 停止时钟刷新
+}
+
+// 监听鼠标移动事件
+function onHandDrag(event) {
+    if (!isHourHandDragging && !isMinuteHandDragging && !isSecondHandDragging){
+        return;
+    }
+    const currentDeg = getDegree(event);
+    console.log(event.clientX, event.clientY);
+    
+    if (isHourHandDragging){
+        hourHand.setAttribute('transform', `rotate(${currentDeg}, 200, 200)`);
+    }
+    else if (isMinuteHandDragging){
+        minuteHand.setAttribute('transform', `rotate(${currentDeg}, 200, 200)`);
+    }
+    else if (isSecondHandDragging){
+        secondHand.setAttribute('transform', `rotate(${currentDeg}, 200, 200)`);
+    }
+    dragUpdate(currentDeg);
+}
+
+// 监听鼠标松开事件
+function onHandDragEnd(event) {
+    isHourHandDragging = false;
+    isMinuteHandDragging = false;
+    isSecondHandDragging = false;
+    document.removeEventListener('mousemove', onHandDrag);
+    document.removeEventListener('mouseup', onHandDragEnd);
+    clockIntervalId = setInterval(updateClock, 100); // 重新启动时钟刷新
+}
+
+// 获取鼠标指针的角度
+function getDegree(event){
+    const cx = document.getElementById('center').getBoundingClientRect().left;
+    const cy = document.getElementById('center').getBoundingClientRect().top;
+    const deltaX = event.clientX - cx;
+    const deltaY = event.clientY - cy;
+
+    let deg = Math.atan2(deltaY, deltaX) * 180 / Math.PI + 90;
+    deg = deg < 0? 360 + deg : deg;
+    return deg;
+}
+
+// 拖动指针时的更新函数
+function dragUpdate(currentDeg){
+    // 获取当前时间
+    let time = document.getElementById("clockDisplay").textContent;
+    let hour = parseInt(time.split(":")[0]);
+    let minute = parseInt(time.split(":")[1]);
+    let second = parseInt(time.split(":")[2]);
+
+    // 通过setTimeDelta函数更新时间
+    if (isHourHandDragging){
+        const currentHour = Math.round((currentDeg * 12 / 360)) % 12;
+        if ((0 < hour && hour < 11) || (hour == 0 && (currentHour == 1||currentHour == 0)) 
+            || (hour == 11 && (currentHour == 10||currentHour == 11))
+            || (hour == 12 && currentHour == 11) || (hour == 23 && currentHour == 0)){
+            setTimeDelta(currentHour, minute, second);
+        }
+        else{
+            setTimeDelta(currentHour + 12, minute, second);
+        }
+    }
+    else if (isMinuteHandDragging){
+        const currentMinute = Math.round((currentDeg * 60 / 360)) % 60;
+        if (minute == 59 && currentMinute == 0){
+            setTimeDelta((hour+1)%24, 0, second);
+        }
+        else if (minute == 0 && currentMinute == 59){
+            setTimeDelta((hour-1+24)%24, 59, second);
+        }
+        else{
+            setTimeDelta(hour, currentMinute, second);
+        }
+    }
+    else if (isSecondHandDragging){
+        const currentSecond = Math.round((currentDeg * 60 / 360)) % 60;
+        if (second == 59 && currentSecond == 0){
+            setTimeDelta(hour, minute+1, 0);
+        }
+        else if (second == 0 && currentSecond == 59){
+            setTimeDelta(hour, minute-1, 59);
+        }
+        else{
+            setTimeDelta(hour, minute, currentSecond);
+        }
+    }
+    // 更新时钟显示
+    updateClock();
+}
