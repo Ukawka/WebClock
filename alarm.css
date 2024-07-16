@@ -14,7 +14,7 @@ html
     display: grid;
     grid-template-columns: 480px 480px; 
     /* 增加闹钟时，判断是否新加行 */
-    grid-template-rows: 230px 230px; 
+    grid-template-rows: repeat(2, 230px); 
     justify-content: center;
     padding-top: 60px;
     row-gap: 20px;
@@ -172,7 +172,7 @@ html
 #modal
 {
     visibility: hidden;
-    position: absolute;
+    position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
@@ -382,7 +382,7 @@ input[type="number"]::-webkit-outer-spin-button::after {
 
 #editButton
 {
-    position: absolute;
+    position: fixed;
     bottom: 5%;
     right: 10%;
     width: 130px;
