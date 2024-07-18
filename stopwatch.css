@@ -117,3 +117,61 @@ button:disabled {
     border-color: #c217c5;
 
 }
+
+/*new code*/
+#recordArea{
+    display: grid;
+    grid-template-columns: 600px;
+    grid-template-rows: repeat(1, 100px);
+    grid-gap: 10px;
+
+    overflow: auto;
+
+    width: 620px;
+    height: 230px;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: 16px;
+    padding: 20px;
+    resize: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.recordInfo{
+    background-color: transparent;
+    border-radius: 3%;
+    box-shadow: 0 0 6px -2px gray;
+    border: 1px solid #ccc;
+}
+
+.recordInfo:hover{
+    outline: none;
+    border-color: #c217c5;
+}
+
+.recordTitle{
+    font-size: 2em;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-top: 10px;
+    float: left;
+}
+
+.recordTime{
+    font-size: 3em;
+    font-weight: bold;
+    float: right;
+    margin-right: 20px;
+    margin-top: 17px;
+}
+
+.recordInterval{
+    clear: left;
+    float: left;
+    color: #565859;
+    margin-left: 20px;
+    margin-top: 10px;
+}

@@ -43,7 +43,13 @@
         <button id="startStopButton" onclick="startStopToggle()">启动</button>
         <button id="resetLapButton" disabled="true" onclick="resetLapToggle()">复位</button>
     </div>
-    <textarea id="lapTimes" rows="10" cols="50" readonly></textarea>
+    <div id="recordArea">
+        <div class="recordInfo" id="record_0">
+            <div class="recordTitle">计次 0</div>
+            <div class="recordTime">00:00:00.000</div>
+            <div class="recordInterval">间隔 00:00:00.000</div>
+        </div>
+    </div>
     <script src="stopwatch.js"></script>
 </body>
 
