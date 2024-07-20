@@ -52,8 +52,16 @@ function pad(value) {
 function enlarge(element)
 {
     const timerModule = element.closest('.timerModule');
-    timerModule.classList.add('enlarge');
+    timerModule.classList.add('enlarged');
 }
+
+// 缩小按钮
+function shrink(element)
+{
+    const timerModule = element.closest('.timerModule');
+    timerModule.classList.remove('enlarged');
+}
+
 
 // 播放暂停按钮
 function play(element)
@@ -74,3 +82,68 @@ function del()
     const grid = document.querySelector('#grid');
     grid.classList.toggle('del');
 }
+
+function editTimer(event)
+{
+    const grid = event.target.closest('#grid');
+    if (event.target.classList.contains('enlarged'))
+    {
+        return;
+    }
+    if (!event.target.closest('.enlargeIcon') && !event.target.closest('.shrinkIcon')  && !event.target.closest('.deleteIcon') && !event.target.closest('.operations')) // 点击非enlarge和deleteIcon时打开模态框
+    {   
+        // 打开模态框
+        grid.classList.add('show');
+        //并储存当前闹钟及其信息
+        // currentAlarm = this;
+        // document.getElementById('hour-input').value = this.querySelector('.time').textContent.split(':')[0];
+        // document.getElementById('minute-input').value = this.querySelector('.time').textContent.split(':')[1];
+        // document.getElementById('nameInput').querySelector('input').value = this.querySelector('.name').textContent;
+        // document.getElementById('delete').addEventListener('click', onModalDelete);
+    }
+    if(grid.classList.contains('del') && !event.target.closest('.deleteIcon'))
+    {
+        grid.classList.remove('del');
+    }
+}
+
+// 关闭模态框
+function cancelModal(event)
+{
+    if(event.target === document.getElementById('save')){ // 点击保存按钮时关闭模态框并更新计时器信息
+        // currentAlarm.querySelector('.time').textContent = `${padZero(hourInput.value)}:${padZero(minuteInput.value)}`;
+        // currentAlarm.querySelector('.name').textContent = document.getElementById('nameInput').querySelector('input').value;
+    }
+    const grid = document.querySelector('#grid')
+    grid.classList.remove('show');
+    // document.getElementById('delete').removeEventListener('click', onModalDelete);
+    currentAlarm = null;
+}
+
+document.getElementById('modal').addEventListener('click', function(event) 
+{
+    if (event.target === this) 
+    {
+        cancelModal(event);
+    }
+});
+
+// 时间格式 末位补零
+function padZero(value) {
+    return value.toString().padStart(2, '0');
+}
+function updateInputValue(input) {
+    input.value = padZero(input.value);
+}
+
+const hourInput = document.getElementById('hour-input');
+const minuteInput = document.getElementById('minute-input');
+const secondInput = document.getElementById('second-input');
+
+hourInput.value = padZero(hourInput.value);
+minuteInput.value = padZero(minuteInput.value);
+secondInput.value = padZero(secondInput.value);
+
+hourInput.addEventListener('change', () => updateInputValue(hourInput));
+minuteInput.addEventListener('change', () => updateInputValue(minuteInput));
+secondInput.addEventListener('change', () => updateInputValue(secondInput));

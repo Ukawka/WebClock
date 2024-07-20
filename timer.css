@@ -57,6 +57,87 @@ html
     transition: all 0.3s ease-in-out;
 }
 
+.enlarged:hover
+{
+    background-color: white;
+}
+.enlarged
+{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 500px;
+    background-color: white;
+    border: none;
+    border-radius: 0;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+    animation: expand 0.3s ease-out forwards;
+}
+
+@keyframes expand {
+    0% {
+        width: 100px;
+        height: 500px;
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        width: 100vw;
+        height: 100vh;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.timerModule.enlarged .body
+{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    padding: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(81, 83, 204, 0.3), rgba(81, 83, 204, 0.5));
+    background: conic-gradient(from 0deg, rgba(81, 83, 204, 0.3), rgb(81, 83, 204, 0.5));
+    justify-content: center;
+    align-items: center;
+}
+
+.timerModule.enlarged .body .timerinfo
+{
+    color: #717171;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.timerModule.enlarged .body .enlargeIcon
+{
+    display: none;
+}
+
+.timerModule.enlarged .body .shrinkIcon:hover
+{
+    top: 5px;
+}
+
+.timerModule.enlarged .body .shrinkIcon
+{
+    position: absolute;
+    top: 10px;
+    left: 500px;
+    display: block;
+    transition: top 0.3s ease-in-out;
+}
+
+.timerModule.enlarged .operations
+{
+    padding-top: 20px;
+}
+
 .timerModule .body
 {
     width: 100%;
@@ -114,15 +195,20 @@ html
     transition: all 0.3s ease-in-out;
 }
 
+.timerModule .body .shrinkIcon
+{
+    display: none;
+}
 
-.timerModule .body .enlarge:hover
+
+.timerModule .body .enlargeIcon:hover
 {
     /* background-color: rgba(81, 83, 204, 0.418); */
     /* background-color: #c2c2c2; */
     margin-top: 27px;
 }
 
-.timerModule .body .enlarge
+.timerModule .body .enlargeIcon
 {
     position: relative;
     width: 40px;
@@ -137,7 +223,7 @@ html
     transition: all 0.3s ease-in-out;
 }
 
-.del .timerModule .body .enlarge
+.del .timerModule .body .enlargeIcon
 {
     display: none
 }
@@ -194,7 +280,7 @@ html
     border-radius: 50%;
     box-shadow: 0 0 1px 0 gray;
 }
-.play .body .timerinfo
+.timerModule.play .body .timerinfo
 {
     color: black;
 }
@@ -213,7 +299,8 @@ html
 {
     display: flex;
 }
-/* #modal
+
+#modal
 {
     visibility: hidden;
     position: absolute;
@@ -285,21 +372,12 @@ html
     font-size: 1.5rem;
 }
 
-#modal #modalwindow #body #clock
-{
-    height: 60%;
-    aspect-ratio: 1 / 1;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-}
-
 #modal #modalwindow #body #timeInput
 {
     
-    border-style: solid;
+    /* border-style: solid;
     border-width: 1px;
-    border-color: black;
+    border-color: black; */
 
     margin-top: 5px;
     height: 15%;
@@ -328,9 +406,9 @@ html
 
 #modal #modalwindow #body #nameInput
 {
-    border-style: solid;
+    /* border-style: solid;
     border-width: 1px;
-    border-color: black;
+    border-color: black; */
     height: 15%;
     width: 100%;
     display: flex;
@@ -396,7 +474,7 @@ html
 .show + #modal
 {
     visibility: visible;
-}  */
+} 
 
 #editButton
 {

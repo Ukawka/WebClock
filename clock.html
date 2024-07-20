@@ -41,7 +41,7 @@
     </svg>
 
     <div id="clockDisplay">00:00:00</div>
-    <button onclick = "toggled()"></button>
+    <button id = "toggleButton" onclick = "toggled()"></button>
     <div id="setTime">
         <div id="inputs">
             <input type="number" id="hour-input" min="0" max="23" value="12">
@@ -52,8 +52,12 @@
             <label for="second-input">秒&nbsp;</label>
         </div>
         <div id="buttons">
-            <button onclick="setTime()">设置时间</button>
-            <button id="reset-time" onclick="resetToSystemTime()">使用系统时间</button>
+            <button onclick="setTime()">
+                <p>设置时间</p>
+            </button>   
+            <button id="reset-time" onclick="resetToSystemTime()">
+                <p>使用系统时间</p>
+            </button>
         </div>
     </div>
 

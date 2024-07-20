@@ -1,3 +1,11 @@
+*
+{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body
 {
     display: flex;
@@ -5,27 +13,6 @@ body
     justify-content: center;
     align-items: center;
 }
-
-.collapsed
-{
-    height: 0 !important;
-}
-
-#setTime {
-    display: flex;
-    flex-direction: column;
-    /* margin: 60px auto; */
-    align-items: center;
-    transition: height 0.8s ease-in-out;
-}
-
-button {
-    margin: 5px;
-    width: 140px;
-    height: 40px;
-    font-size: 20px;
-}
-
 #clock {
     display: block;
     margin: 0 auto;
@@ -33,42 +20,6 @@ button {
     height: 400px;
     transform: translateY(90px);
 }
-
-.number {
-    font-family: Arial, sans-serif;
-    font-size: 24px;
-    text-anchor: middle;
-}
-
-#clockDisplay {
-    text-align: center;
-    font-size: 120px;
-    font-weight: 700;
-    font-family: Arial, sans-serif;
-    margin-top: 120px;
-}
-
-#inputs {
-    display: flex;
-}
-
-#buttons {
-    display: flex;
-}
-
-input[type="number"] {
-    text-align: center;
-    font-size: 30px;
-}
-
-#setTime label[for="hour-input"],
-#setTime label[for="minute-input"],
-#setTime label[for="second-input"] {
-    position: relative;
-    left: 2px;
-    font-size: 30px;
-}
-
 #hour-hand,
 #minute-hand,
 #second-hand {
@@ -78,4 +29,89 @@ input[type="number"] {
 #minute-hand:active,
 #second-hand:active {
     cursor: grabbing;
+}
+.number {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    text-anchor: middle;
+}
+#clockDisplay {
+    text-align: center;
+    font-size: 120px;
+    font-weight: 700;
+    font-family: Arial, sans-serif;
+    margin-top: 120px;
+}
+
+#toggleButton
+{
+    height: 20px;
+    width: 40px;
+}
+.collapsed
+{
+    height: 0 !important;
+}
+
+#setTime {
+    height: 85px;
+    width: 420px;
+    display: flex;
+    flex-direction: column;
+    /* margin: 60px auto; */
+    align-items: center;
+    transition: height 0.8s ease-in-out;
+}
+
+#setTime #inputs 
+{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#setTime #buttons 
+{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    justify-content: space-around;
+    align-items: center;
+}
+
+#setTime #inputs > input[type="number"] {
+    height: 100%;
+    text-align: center;
+    /* font-size: 30px; */
+}
+
+#setTime #buttons > button 
+{
+    /* margin: 5px; */
+    /* width: 140px; */
+    width: 30%;
+    height: 100%;
+    /* font-size: 20px; */
+}
+/* #setTime #buttons > button > div
+{
+    height: 100%;
+    width: 100%;
+} */
+
+#setTime label[for="hour-input"],
+#setTime label[for="minute-input"],
+#setTime label[for="second-input"] 
+{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    /* position: relative; */
+    /* left: 2px; */
+    /* font-size: 30px; */
 }
