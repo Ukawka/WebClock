@@ -206,3 +206,23 @@ function toggled()
     setTime.classList.toggle('collapsed');
     // alert("collapsed");
 }
+
+// 时间格式 末位补零
+function padZero(value) {
+    return value.toString().padStart(2, '0');
+}
+function updateInputValue(input) {
+    input.value = padZero(input.value);
+}
+
+const hourInput = document.getElementById('hour-input');
+const minuteInput = document.getElementById('minute-input');
+const secondInput = document.getElementById('second-input');
+
+hourInput.value = padZero(hourInput.value);
+minuteInput.value = padZero(minuteInput.value);
+secondInput.value = padZero(secondInput.value);
+
+hourInput.addEventListener('change', () => updateInputValue(hourInput));
+minuteInput.addEventListener('change', () => updateInputValue(minuteInput));
+secondInput.addEventListener('change', () => updateInputValue(secondInput));

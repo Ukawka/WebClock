@@ -77,10 +77,12 @@ function renew(element)
 }
 
 // 编辑-删除按钮
-function del()
+function del(element)
 {
     const grid = document.querySelector('#grid');
+    const editButton = element.closest('#editButton'); 
     grid.classList.toggle('del');
+    editButton.classList.toggle('displace');
 }
 
 function editTimer(event)
@@ -147,3 +149,5 @@ secondInput.value = padZero(secondInput.value);
 hourInput.addEventListener('change', () => updateInputValue(hourInput));
 minuteInput.addEventListener('change', () => updateInputValue(minuteInput));
 secondInput.addEventListener('change', () => updateInputValue(secondInput));
+
+

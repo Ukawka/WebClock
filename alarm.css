@@ -411,3 +411,18 @@ input[type="number"]::-webkit-outer-spin-button::after {
 {
     background-color: #c2c2c2;
 }
+
+.displace#editButton .operation #del
+{
+    display: none;
+}
+
+#editButton .operation #ok
+{
+    display: none;
+}
+
+.displace#editButton .operation #ok
+{
+    display: block;
+}

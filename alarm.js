@@ -137,10 +137,12 @@ function addAlarm()
 }
 
 // 编辑-删除按钮
-function del()
+function del(element)
 {
     const grid = document.querySelector('#grid');
+    const editButton = element.closest('#editButton'); 
     grid.classList.toggle('del');
+    editButton.classList.toggle('displace');
 }
 
 // 删除一个闹钟
