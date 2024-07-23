@@ -106,12 +106,23 @@ html
     align-items: center;
 }
 
+.timerModule.enlarged .body .ring
+{
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background-color: white;
+    z-index: 5;
+}
+
 .timerModule.enlarged .body .timerinfo
 {
     color: #717171;
     padding: 0;
     width: 100%;
     text-align: center;
+    z-index: 10;
 }
 
 .timerModule.enlarged .body .enlargeIcon

@@ -198,17 +198,27 @@ function dragUpdate(currentDeg){
     updateClock();
 }
 
-function toggled()
+// function changeIcon(element)
+// {
+//     element.classList.toggle('toggled');
+// }
+
+function toggled(element)
 {
     const setTime = document.querySelector('#setTime');
     setTime.classList.toggle('collapsed');
+    setTimeout(function() 
+    {
+        if(setTime.classList.contains('collapsed')){
+            document.getElementById('icon-svg').setAttribute('transform', 'rotate(180 512 512)');
+        }
+        else{
+            document.getElementById('icon-svg').setAttribute('transform', 'rotate(0)');
+        }
+    }, 500);
+    
     // alert("collapsed");
-    if(setTime.classList.contains('collapsed')){
-        document.getElementById('icon-svg').setAttribute('transform', 'rotate(180 512 512)');
-    }
-    else{
-        document.getElementById('icon-svg').setAttribute('transform', 'rotate(0)');
-    }
+    
 }
 
 // 时间格式 末位补零

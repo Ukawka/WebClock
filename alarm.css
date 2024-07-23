@@ -291,21 +291,11 @@ html
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-  appearance: none;
+  /* appearance: none; */
   width: 20px;
-  height: 20px;
-  background-color: #ccc;
-  color: #fff;
+  height: 38px;
   font-size: 12px;
   cursor: pointer;
-}
-
-input[type="number"]::-webkit-inner-spin-button::after {
-  content: "+";
-}
-
-input[type="number"]::-webkit-outer-spin-button::after {
-  content: "-";
 }
 
 #modal #modalwindow #body #nameInput
