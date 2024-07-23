@@ -57,10 +57,36 @@ body
     margin-bottom: -10px;
     transition: all 0.3s ease-in-out;
 }
+#toggleButton #expand
+{
+    /* transition-property: display;
+    transition-delay: 1s; */
+    display: none;
+}
+
+#toggleButton.toggled #expand
+{
+    display: block;
+}
+
+#toggleButton #collapse
+{   
+    /* transition-property: display;
+    transition-delay: 1s; */
+    display: block;
+}
+
+#toggleButton.toggled #collapse
+{
+    display: none;
+}
+
 .collapsed
 {
     height: 0 !important;
 }
+
+
 
 #setTime {
     height: 85px;

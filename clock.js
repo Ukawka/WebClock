@@ -200,10 +200,17 @@ function dragUpdate(currentDeg){
     updateClock();
 }
 
-function toggled()
+// function changeIcon(element)
+// {
+//     element.classList.toggle('toggled');
+// }
+
+function toggled(element)
 {
     const setTime = document.querySelector('#setTime');
     setTime.classList.toggle('collapsed');
+    setTimeout(function() { element.classList.toggle('toggled'); }, 300);
+    
     // alert("collapsed");
 }
 
