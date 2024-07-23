@@ -1,7 +1,7 @@
 var currentTimer = null; // 储存当前打开的计时器
 
 // 在更改计时器时需要维护的变量
-let timerTimes = new Array(document.querySelectorAll('.timerModule').length).fill(1); // 储存所有计时器的设定时间(毫秒),设置为1避免除以0
+let timerTimes = new Array(document.querySelectorAll('.timerModule').length).fill(0); // 储存所有计时器的设定时间(毫秒)
 let timerDurations = new Array(document.querySelectorAll('.timerModule').length).fill(0); // 储存所有计时器的剩余时间(毫秒)
 let timerIntervals = new Array(document.querySelectorAll('.timerModule').length).fill(null); // 储存所有计时器的定时器
 
@@ -90,7 +90,7 @@ function renew(element)
         timerModule.querySelector('.body').style.backgroundImage = setConicGradient(timerModule, 360);
     }
     const index = Array.from(document.getElementsByClassName('timerModule')).indexOf(timerModule);
-    timerTimes[index] = 1;
+    timerTimes[index] = 0;
     timerDurations[index] = 0;
 }
 
