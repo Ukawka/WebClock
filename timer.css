@@ -18,7 +18,7 @@ html
     display: grid;
     grid-template-columns: 480px 480px; 
     /* 增加倒计时时，判断是否新加行 */
-    grid-template-rows: 230px 230px; 
+    grid-template-rows: repeat(2, 230px); 
     justify-content: center;
     padding-top: 60px;
     row-gap: 20px;
@@ -101,7 +101,7 @@ html
     padding: 0;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(81, 83, 204, 0.3), rgba(81, 83, 204, 0.5));
-    background: conic-gradient(from 0deg, rgba(81, 83, 204, 0.3), rgb(81, 83, 204, 0.5));
+    background: conic-gradient(rgba(81, 83, 204, 0.2) 0deg, rgba(81, 83, 204, 0.7) 360deg, rgba(200, 200, 200, 0.2) 360deg, rgba(200, 200, 200, 0.2) 360deg);
     justify-content: center;
     align-items: center;
 }
@@ -188,7 +188,6 @@ html
 
 .del .timerModule .body .deleteIcon:hover
 {
-    /* background-color: #c2c2c2; */
     margin-top: 27px;
 }
 
@@ -314,7 +313,7 @@ html
 #modal
 {
     visibility: hidden;
-    position: absolute;
+    position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
@@ -489,7 +488,7 @@ html
 
 #editButton
 {
-    position: absolute;
+    position: fixed;
     bottom: 5%;
     right: 10%;
     width: 130px;
