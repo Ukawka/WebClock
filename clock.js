@@ -83,7 +83,6 @@ var secondHand = document.getElementById('second-hand');
 var isHourHandDragging = false;
 var isMinuteHandDragging = false;
 var isSecondHandDragging = false;
-console.log(document.getElementById('center').getBoundingClientRect().left, document.getElementById('center').getBoundingClientRect().top);
 
 // 监听时针拖动事件
 hourHand.addEventListener('mousedown', function(event) {
@@ -116,7 +115,6 @@ function onHandDrag(event) {
         return;
     }
     const currentDeg = getDegree(event);
-    console.log(event.clientX, event.clientY);
     
     if (isHourHandDragging){
         hourHand.setAttribute('transform', `rotate(${currentDeg}, 200, 200)`);
@@ -209,9 +207,18 @@ function toggled(element)
 {
     const setTime = document.querySelector('#setTime');
     setTime.classList.toggle('collapsed');
-    setTimeout(function() { element.classList.toggle('toggled'); }, 300);
+    setTimeout(function() 
+    {
+        if(setTime.classList.contains('collapsed')){
+            document.getElementById('icon-svg').setAttribute('transform', 'rotate(180 512 512)');
+        }
+        else{
+            document.getElementById('icon-svg').setAttribute('transform', 'rotate(0)');
+        }
+    }, 500);
     
     // alert("collapsed");
+    
 }
 
 // 时间格式 末位补零
