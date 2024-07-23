@@ -47,7 +47,7 @@ function editAlarm(event)
     }
     if(grid.classList.contains('del') && !event.target.closest('.deleteIcon'))
     {
-        grid.classList.remove('del');
+        document.getElementById('editButton').getElementsByClassName('operation')[1].click();
     }
 }
 
@@ -71,6 +71,10 @@ function onAlarmDelete(event){
 function cancelModal(event)
 {
     if(event.target === document.getElementById('save')){ // 点击保存按钮时关闭模态框并更新闹钟信息
+        if (!new RegExp(hourInput.pattern).test(hourInput.value) || !new RegExp(minuteInput.pattern).test(minuteInput.value)){
+            alert('请输入正确的时间格式');
+            return;
+        }
         currentAlarm.querySelector('.time').textContent = `${padZero(hourInput.value)}:${padZero(minuteInput.value)}`;
         currentAlarm.querySelector('.name').textContent = document.getElementById('nameInput').querySelector('input').value;
     }
@@ -157,7 +161,6 @@ function deleteAlarm(alarmToDelete){
             alarms[i].querySelector('input[type="checkbox"]').click();
         }
     }
-    console.log(isCheckedArray);
     // 删除最后一个闹钟，并删除相关事件监听
     let lastAlarm = alarms[alarms.length-1];
     lastAlarm.querySelector('input[type="checkbox"]').removeEventListener('change', switchAlarm);
