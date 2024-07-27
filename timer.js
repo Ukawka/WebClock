@@ -55,18 +55,25 @@ function countdown(timerModule) {
         if (timerModule.classList.contains('enlarged')) { // 放大界面恢复成初始效果
             timerModule.querySelector('.body').style.backgroundImage = setConicGradient(timerModule, 0);
         }
+        alert('时间到！');
         return;
     }
     // 更新显示
-    const hours = Math.floor(timerDurations[index] / 3600000);
-    const minutes = Math.floor((timerDurations[index] % 3600000) / 60000);
-    const seconds = Math.floor((timerDurations[index] % 60000) / 1000);
-    timerModule.querySelector('.time').textContent = `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
+    timerModule.querySelector('.time').textContent = displayTime(timerDurations[index]);
     // 放大界面对渐变效果的更新显示
     if (timerModule.classList.contains('enlarged')) {
         const deg = 360 * timerDurations[index] / timerTimes[index];
         timerModule.querySelector('.body').style.backgroundImage = setConicGradient(timerModule, deg);
     } 
+}
+
+// 显示时间格式
+function displayTime(ms)
+{
+    const hours = Math.floor(ms / 3600000);
+    const minutes = Math.floor((ms % 3600000) / 60000);
+    const seconds = Math.floor((ms % 60000) / 1000);
+    return `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
 }
 
 // 通过改变backgroundImage设置样式中的渐变效果
@@ -77,21 +84,20 @@ function setConicGradient(timerModule, deg) {
     return bgImage.slice(0, match1.index+23) + `${deg}` + bgImage.slice(match2.index-5, match2.index+25) + `${deg}` + bgImage.slice(-37);
 }
 
-// 归零按钮
+// 重置按钮
 function renew(element)
 {
     const timerModule = element.closest('.timerModule');
-    if (timerModule.classList.contains('play')){ // 点击归零按钮时停止计时
+    const index = Array.from(document.getElementsByClassName('timerModule')).indexOf(timerModule);
+    if (timerModule.classList.contains('play')){ // 点击重置按钮时停止计时
         timerModule.querySelector('.play').click();
     }
     // 显示和变量都恢复初始状态
-    timerModule.querySelector('.time').textContent = '00:00:00';
+    timerDurations[index] = timerTimes[index];
+    timerModule.querySelector('.time').textContent = displayTime(timerDurations[index]);
     if (timerModule.classList.contains('enlarged')) {
         timerModule.querySelector('.body').style.backgroundImage = setConicGradient(timerModule, 360);
     }
-    const index = Array.from(document.getElementsByClassName('timerModule')).indexOf(timerModule);
-    timerTimes[index] = 0;
-    timerDurations[index] = 0;
 }
 
 // 编辑-删除按钮
