@@ -172,13 +172,14 @@ function deleteAlarm(alarmToDelete){
     document.querySelector('#grid').style.gridTemplateRows = `repeat(${Math.ceil((alarms.length-1)/2)}, 230px)`;
 }
 
-// 每分钟检查闹钟是否响起
-setInterval(checkAlarms, 60000);
+// 每秒检查闹钟是否响起
+setInterval(checkAlarms, 1000);
 
 // 检查闹钟是否响起函数
 function checkAlarms(){
     document.querySelectorAll('.alarmModule').forEach(function(alarm){
-        if (isCheckedArray[Array.from(document.querySelectorAll('.alarmModule')).indexOf(alarm)]) // 只判断打开的闹钟
+        const index = Array.from(document.querySelectorAll('.alarmModule')).indexOf(alarm);
+        if (isCheckedArray[index]) // 只判断打开的闹钟
         {
             const alarmTime = alarm.querySelector('.time').textContent;
             const alarmHour = parseInt(alarmTime.split(':')[0]);
@@ -187,6 +188,7 @@ function checkAlarms(){
             const nowHour = now.getHours();
             const nowMinute = now.getMinutes();
             if(alarmHour === nowHour && alarmMinute === nowMinute){
+                alarm.querySelector('input[type="checkbox"]').click(); // 闹钟响起，关闭闹钟
                 alert('闹钟响了！');
             }
         }
