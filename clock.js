@@ -46,13 +46,15 @@ function resetToSystemTime() {
 
 // 刷新时钟
 function updateClock() {
+    // 获取当前时间，并添加delta_date时间差
     const now = new Date();
     const adjustedTime = new Date(now.getTime() + delta_date.getTime());
+    // 计算时、分、秒、毫秒
     const hours = adjustedTime.getHours() % 12;
     const minutes = adjustedTime.getMinutes();
     const seconds = adjustedTime.getSeconds();
     const milliseconds = adjustedTime.getMilliseconds();
-
+    // 更新时钟指针位置
     const hourHand = document.getElementById('hour-hand');
     const minuteHand = document.getElementById('minute-hand');
     const secondHand = document.getElementById('second-hand');
@@ -67,7 +69,6 @@ function updateClock() {
 
     // 格式化时间显示
     const timeString = `${String(adjustedTime.getHours()).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-
     // 更新数字时钟label的内容
     document.getElementById('clockDisplay').textContent = timeString;
 }
@@ -197,11 +198,6 @@ function dragUpdate(currentDeg){
     // 更新时钟显示
     updateClock();
 }
-
-// function changeIcon(element)
-// {
-//     element.classList.toggle('toggled');
-// }
 
 function toggled(element)
 {
