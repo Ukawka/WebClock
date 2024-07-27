@@ -39,7 +39,6 @@ html
 
 .alarmModule:hover
 {
-    /* background-color:rgb(230, 230, 230); */
     background-color: #f9f9f9;
 }
 
@@ -82,7 +81,6 @@ html
 
 .del .alarmModule .deleteIcon:hover
 {
-    /* background-color: #c2c2c2; */
     margin-top: 27px;
 }
 
@@ -154,7 +152,6 @@ html
 
 .checked .slider 
 {
-    /* background-color: #2196F3; */
     background-color: rgb(81, 83, 204);
 }
 
@@ -188,17 +185,16 @@ html
 #modal #modalwindow
 {
     width: 300px;
-    height: 500px;
+    height: 300px;
     background-color: #efefef;
     border-radius: 10px;
     box-shadow: 0 0 5px 0 gray;
-    /* padding: 20px; */
 }
 
 #modal #modalwindow #head
 {
     width: 100%;
-    height: 15%;
+    height: 25%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -233,7 +229,7 @@ html
 #modal #modalwindow #body
 {
     width: 100%;
-    height: 70%;
+    height: 50%;
     padding: 10px 20px 20px 20px;
     display: flex;
     flex-direction: column;
@@ -259,7 +255,8 @@ html
     border-color: black; */
 
     margin-top: 5px;
-    height: 15%;
+    padding-bottom: 5px;
+    height: 50%;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -269,12 +266,6 @@ html
     font-weight: bold;
 }
 
-/* input[type="number"] 
-{
-    -moz-appearance: textfield;
-    appearance: textfield;
-    margin: 0;
-} */
 #modal #modalwindow #body #timeInput > input[type = "number"]
 {
     width: 20%;
@@ -291,7 +282,6 @@ html
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-  /* appearance: none; */
   width: 20px;
   height: 38px;
   font-size: 12px;
@@ -300,11 +290,9 @@ input[type="number"]::-webkit-outer-spin-button {
 
 #modal #modalwindow #body #nameInput
 {
-    /* border-style: solid;
-    border-width: 1px;
-    border-color: black; */
-    height: 15%;
+    height: 50%;
     width: 100%;
+    padding-top: 5px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -333,7 +321,7 @@ input[type="number"]::-webkit-outer-spin-button {
 #modal #modalwindow #foot
 {
     width: 100%; 
-    height: 15%;
+    height: 25%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

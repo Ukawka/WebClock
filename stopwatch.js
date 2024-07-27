@@ -61,6 +61,9 @@ function resetStopwatch() {
     lastRecordTime = 0;
     displayTime(0); // 更新显示到初始状态
     updateClock(); // 更新时钟使恢复到初始状态
+    //隐藏计次框
+    const recordArea = document.getElementById('recordArea');
+    recordArea.classList.remove('displayed');
     // 清空所有记录器
     const recordInfos = document.getElementsByClassName('recordInfo');
     for (let i = recordInfos.length - 1; i > 0; i--) {
@@ -71,6 +74,9 @@ function resetStopwatch() {
 
 // 分段秒表(掐表)
 function lapStopwatch() {
+    //显示计次框
+    const recordArea = document.getElementById('recordArea');
+    if(!recordArea.classList.contains('displayed')) recordArea.classList.add('displayed');
     const index = document.getElementsByClassName('recordInfo').length;
     // 生成新的记录器，并更改其信息
     var newRecord = recordClone.cloneNode(true);
