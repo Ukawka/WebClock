@@ -13,12 +13,8 @@ body
 {
     height: 100vh;
     width: 100vw;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    justify-content: flex-start;
-    align-items: center;
 }
+
 #stopwatch {
     font-size: 70px;
     margin-bottom: 20px;
@@ -94,6 +90,11 @@ button:disabled {
     color: #ffffff;
     background-color: #d3d3d3;
 
+}
+
+#clockContainer {
+    display: flex;
+    justify-content: center;
 }
 
 #clock {
