@@ -159,6 +159,7 @@ function deleteAlarm(alarmToDelete){
         alarms[i].getElementsByClassName('name')[0].textContent = alarms[i+1].getElementsByClassName('name')[0].textContent;
         if(isCheckedArray[i]^isCheckedArray[i+1]){ // 若后一个闹钟与前一个闹钟状态不同，则修改前一个闹钟的状态使之与后一个闹钟一致
             alarms[i].querySelector('input[type="checkbox"]').click();
+            document.getElementById('editButton').getElementsByClassName('operation')[1].click(); // 恢复编辑状态
         }
     }
     // 删除最后一个闹钟，并删除相关事件监听
