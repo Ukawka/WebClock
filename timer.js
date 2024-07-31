@@ -33,14 +33,6 @@ function play(element)
 {
     const timerModule = element.closest('.timerModule');
     const index = Array.from(document.getElementsByClassName('timerModule')).indexOf(timerModule);
-    // if(element.classList.contains('disabled'))
-    // {
-    //     return ;
-    // }
-    // if(timerIntervals[index] === 0) 
-    // {
-    //     element.classList.add('disabled');
-    // }
     timerModule.classList.toggle('play'); // 切换播放/暂停按钮样式
     if (timerModule.classList.contains('play')) { // 点击播放按钮时开始计时
         timerIntervals[index] = setInterval(countdown, 10, timerModule); // 开始倒计时，每10毫秒更新一次

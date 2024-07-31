@@ -240,16 +240,6 @@ html
     align-items: flex-start;
 }
 
-/* .timerModule .operations .play.disabled
-{
-    background-color: #c2c2c2;
-}
-
-.timerModule .operations .play。disabled:hover
-{
-    background-color: #c2c2c2;
-} */
-
 .timerModule .operations .play:hover
 {
     background-color: rgba(81, 83, 204, 0.804);

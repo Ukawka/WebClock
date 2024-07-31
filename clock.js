@@ -213,8 +213,6 @@ function toggled(element)
         }
     }, 500);
     
-    // alert("collapsed");
-    
 }
 
 // 时间格式 末位补零
